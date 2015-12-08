@@ -2,6 +2,7 @@
 #include "ui_crearevento.h"
 #include "mainwindow.h"
 #include "eventocreado.h"
+//Esta es la ventana de creacion de un evento
 CrearEvento::CrearEvento(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CrearEvento)
@@ -16,6 +17,7 @@ CrearEvento::~CrearEvento()
 
 void CrearEvento::on_pushButton_clicked()
 {
+    //Se declaran las variables y se determina el valor de cada variable a partir de lo que el profesor escriba en las cajas de texto
     QString tema,aula,descripcion,fechaString,horaString;
     int cupos;
     QDate fecha;
@@ -28,7 +30,7 @@ void CrearEvento::on_pushButton_clicked()
     hora=ui->timeEdit->time();
     fechaString=fecha.toString();
     horaString=hora.toString();
-    //qDebug()<< tema<<aula<<cupos<<fechaString<<descripcion<<horaString<<aula;
+    //se invoca el query para insertar en la base de datos los datos suministrados
     QString sQuery = "INSERT INTO [Manager].[dbo].[eventos]([Tema],[Aula],[Fecha],[Hora],[Descripcion],[Cupos],[Solicitudes])VALUES(:tema,:aula,:fecha,:hora,:descripcion,:cupos,:sol)";
     QSqlQuery qry;
     qry.prepare(sQuery);
@@ -45,7 +47,7 @@ qDebug() << horaString << hora;
     QSqlQuery qry2;
     qry2.prepare(sQuery2);
     qry2.exec();
-
+//despues de haber insertado los datos se abre una notificacion y se cierra la ventana.
     EventoCreado ventana;
     ventana.setModal(true);
     ventana.exec();

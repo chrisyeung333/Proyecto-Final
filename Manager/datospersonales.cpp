@@ -1,5 +1,7 @@
 #include "datospersonales.h"
 #include "ui_datospersonales.h"
+//Esta es la ventana de los datos personales del estudiante
+//se declaran las variables en donde se va a guardar la informacion del estudiante
 QString nombre3;
 QString apellido3;
 QString carne3;
@@ -18,7 +20,7 @@ DatosPersonales::~DatosPersonales()
 {
     delete ui;
 }
-
+// se crea el metodo set para poner los valores de las variables en las etiquetas
 void DatosPersonales::setDatos(QString n,QString a,QString c,QString t,QString e,QString u)
 {
     nombre3 = n;

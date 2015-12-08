@@ -2,6 +2,7 @@
 #include "ui_nuevousuario.h"
 #include "mainwindow.h"
 #include "registrado.h"
+//esta es la ventana para crear un nuevo usuario
 NuevoUsuario::NuevoUsuario(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NuevoUsuario)
@@ -13,7 +14,7 @@ NuevoUsuario::~NuevoUsuario()
 {
     delete ui;
 }
-
+//se toman los datos de las cajas de texto  y se guardan en la base de datos
 void NuevoUsuario::on_pushButton_clicked()
 {
     QString nombre,apellido,carne,telefono,correo,usuario,pass;

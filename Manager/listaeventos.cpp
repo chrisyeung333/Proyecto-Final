@@ -1,6 +1,7 @@
 #include "listaeventos.h"
 #include "ui_listaeventos.h"
 #include "mainwindow.h"
+//esta es la ventana de la lista de eventos
 ListaEventos::ListaEventos(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ListaEventos)
@@ -24,7 +25,7 @@ ListaEventos::~ListaEventos()
 {
     delete ui;
 }
-
+//cuando se oprime el boton de mostrar estudiantes, se saca de la base de datos los nombres de los estudiantes que solicitaron ese evento
 void ListaEventos::on_pushButton_clicked()
 {
     this->model = new QSqlQueryModel();

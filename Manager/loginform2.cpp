@@ -2,6 +2,7 @@
 #include "ui_loginform2.h"
 #include "mainwindow.h"
 #include "interfazestu.h"
+//esta es la ventana de login para estudiantes
 LoginForm2::LoginForm2(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::LoginForm2)
@@ -13,7 +14,7 @@ LoginForm2::~LoginForm2()
 {
     delete ui;
 }
-
+//cuando se oprime el boton de login, se compara los datos ingresado con los usuario y su contraseña respectiva de la base de datos
 void LoginForm2::on_pushButton_clicked()
 {
     QString usuario,pass;
@@ -29,7 +30,7 @@ void LoginForm2::on_pushButton_clicked()
 
             if(pass == qry.value(6).toString() && usuario == qry.value(5).toString())
              {
-            //Usuario y pass correcto
+            //Usuario y pass correcto,se abre la ventana de principal de estudiante
                 ui->label_Status->setText("VALIDO");
 
                 valido =1;
@@ -41,6 +42,7 @@ void LoginForm2::on_pushButton_clicked()
 
             }
             if(valido==0)
+                //si los datos no son correcto se abre una notificacion
                   ui->label_Status->setText("Usuario o contraseña invalida");
             }
 

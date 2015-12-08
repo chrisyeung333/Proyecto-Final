@@ -2,6 +2,7 @@
 #include "ui_solicitud.h"
 #include "dialogsolicitud.h"
 #include <QDebug>
+//esta es la ventana para solicitar eventos
 QString nombre2;
 QString apellido2;
 QString carne2;
@@ -10,6 +11,7 @@ Solicitud::Solicitud(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Solicitud)
 {
+    //se muestran todos los eventos que hay en la base de datos
     ui->setupUi(this);
     this->model = new QSqlQueryModel();
     model->setQuery("SELECT [Tema],[Aula],[Fecha],[Hora],[Descripcion],[Cupos],[Solicitudes]FROM [Manager].[dbo].[eventos]");
@@ -38,7 +40,7 @@ void Solicitud::setDatos(QString n,QString a,QString c)
 
     qDebug() << nombre2 << apellido2 << carne2;
 }
-
+//cuando se oprime el boton de solicitar, se guardara el los datos del estudiante en el evento y se suma el contador de solicitudes al evento
 void Solicitud::on_pushButton_clicked()
 {
     eventoSelec = ui->comboBox->currentText();

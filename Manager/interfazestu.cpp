@@ -4,6 +4,8 @@
 #include "solicitud.h"
 #include "datospersonales.h"
 #include <QDebug>
+//Esta es la ventana principal depues de que un estudiante ingresa
+//se declaran las variables donde se va guardar la informacion del estudiante que ingreso
 QString nombre;
 QString apellido;
 QString carne;
@@ -22,7 +24,7 @@ InterfazEstu::~InterfazEstu()
     delete ui;
 }
 
-
+// cuando se oprima el boton de solicitar evento, se abre la ventana de solicitud
 void InterfazEstu::on_pushButton_2_clicked()
 {
     Solicitud solicitud;
@@ -30,7 +32,7 @@ void InterfazEstu::on_pushButton_2_clicked()
     solicitud.setDatos(nombre,apellido,carne);
     solicitud.exec();
 }
-
+//metodo se de set para asignar los valores de la informacion del estudiante
 void InterfazEstu::setDatos(QString n,QString a,QString c,QString t,QString e,QString u)
 {
     nombre = n;
@@ -41,7 +43,7 @@ void InterfazEstu::setDatos(QString n,QString a,QString c,QString t,QString e,QS
     usuario = u;
 }
 
-
+//cuando se oprima el boton de datos personales, se abre la ventana de datos personales
 void InterfazEstu::on_pushButton_clicked()
 {
     DatosPersonales datos;
